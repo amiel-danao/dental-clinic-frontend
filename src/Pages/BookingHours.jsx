@@ -6,9 +6,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import './BookingHours.css';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../Components/Spinner';
+import BaseUrlzz from '../constants';
 
 const BookingHours = () => {
-  const url = 'https://dental-service.onrender.com/dental-clinic/slot';
+  const url = `${BaseUrlzz}/slot`;
   const navigate = useNavigate();
   const [loader, setLoader] = useState('none');
   const [activeUser, setActiveUser] = useState({
