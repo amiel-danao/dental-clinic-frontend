@@ -1,0 +1,30 @@
+Dental Clinic appointment system
+
+new customer -> dashboard treatment -> schedule -> fill up -> sms notification
+
+guest info will be saved, admin will ask if a guest wants to create a full account, user will provide his/her password
+
+customer:
+dashboard
+treatment
+history reports
+profile
+
+
+
+web based
+php
+
+keep color scheme
+
+include homepage (non logged in)
+client signup
+
+client can cancel schedule
+client will fill up form after selecting an appointment day
+
+maximum number of clients per day
+
+generate report per day of total clients
+
+keep records of clients

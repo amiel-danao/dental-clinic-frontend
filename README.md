@@ -1,65 +1,36 @@
-# 🦷Clinic Management System for LFI Dental Clinic
+<h1>🦷 Dental Clinic Web-Application</h1>
+<div>
+<img src="https://img.shields.io/badge/status-active-success.svg"/>
+<img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+</div>
 
-![Screenshot of the home page](https://raw.githubusercontent.com/arvl130/nuxt-lfi-dental-clinic/master/preview-2.png)
-![Screenshot of the appointments scheduling page](https://raw.githubusercontent.com/arvl130/nuxt-lfi-dental-clinic/master/preview-1.png)
+## About :speech_balloon:
+I have created an application that is designed to assist patients at a dental clinic. The application allows users to register as a client by providing their personal information. Once registered, users can log in and access their profile, which displays their personal information and upcoming appointments. The application allows patients to make an appointment by selecting the date, time, and dentist of their choice. The profile view also allows patients to delete appointments they have scheduled themselves. This feature provides patients with the flexibility to manage their appointments without having to contact the clinic. Overall, the application is designed to make it easy for patients to schedule and manage their dental appointments, providing convenience and a better user experience.
+<!-- It has an Administrator view, in which you can see all the appointments that the clinic has and all the clients that the clinic has. -->
 
-This is a clinic management system for LFI Dental Clinic developed in compliance to the requirements of SE101, IPT101, HCI101, IM101, and SIA101 subject of the Bachelor of Science in Information Technology program of Quezon City University.
 
-Originally, this project was built with Vue + Vite, but later on it was migrated to Nuxt for easier maintenance. The original Vue frontend project can be found [here](https://gitlab.com/arvl/vue-lfi-dental-clinic). The original Node backend project can be found [here](https://gitlab.com/arvl/node-lfi-dental-clinic).
 
-## Features
+## Screenshots 📸
 
-- Responsive frontend design
-- Email-based sign in with verification
-- Streamlined appointment scheduling and management
-- Feature-rich dentist forms
-- Efficient patient record system
-- Automated reminders
+ <img src="https://user-images.githubusercontent.com/89139437/211010754-62560ee8-8c19-4cd4-b599-182c6ac38f4f.png" width="1000" />
+ 
+Appointments
 
-## Tech Stack
+ <img src="https://user-images.githubusercontent.com/89139437/204083629-5c53ac75-645f-4ab2-b788-772cd89a9486.png" width="1000" />
 
-- [Vue](https://vuejs.org) and [Nuxt](https://nuxt.com) for frontend and backend
-- [Tailwind CSS](tailwindcss.com) for styling
-- [Firebase](https://firebase.google.com) for storage, database, and authentication
-- [CloudWatch Events](https://aws.amazon.com/cloudwatch) for automated reminders
+Registration 
 
-## Design Prototype
+ <img src="https://user-images.githubusercontent.com/89139437/204083557-8859e4a1-91b1-4459-a123-441746e16e55.png" width="1000" />
 
-- Patient pages - View in [Figma](https://www.figma.com/file/y0RIZJvOfIuciit3XQ4yRM/Patient-View)
-- Admin pages - View in [Figma](https://www.figma.com/file/24VlEkk0LzDjrenNn5IXIh/Admin-View)
 
-## Setup
+# 📝 Features
+✅ If you have a toothache, you can schedule an appointment on this website.<br/> 
+✅ Login and Registration system for Authentication.<br/> 
+✅ Chat with Doctor option available.<br/> 
+✅ This website is compatible with mobile devices. 
 
-This project uses Node.js with NPM or Yarn for project management. For authentication and
-the database, we utilize Firebase Auth and Firestore with the Admin SDK.
 
-Make sure to [generate a private key](https://firebase.google.com/docs/admin/setup#initialize-sdk)
-file in Firebase that you can use for this project.
+<hr/>
 
-For sending email, we utilize Nodemailer with Gmail's SMTP support. You will need to provide
-a Google [app password](https://support.google.com/accounts/answer/185833).
-
-Run the following command to pull down the project dependencies.
-
-```sh
-$ yarn install # or npm install
-```
-
-Create a `.env` file using the `.env.example` template.
-
-```sh
-$ cp .env.example .env
-$ vi .env # remember to press :wq to quit!
-```
-
-Run the project with the following command:
-
-```sh
-$ yarn run dev
-```
-
-## License
-
-This project is licensed under the MIT License.
-
-Copyright © 2023 Angelo Geulin, Mike Gester Sabuga, Eddie Jay Castuera, Marichelle Casbadillo, Mariel Elaine Lopez, Anne Clarisse Gonzales, Winchell Castillo
+<h3 align="center"> DON'T FORGET TO ⭐ THIS REPOSITORY !!!
+</h3> 
