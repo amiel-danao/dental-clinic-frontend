@@ -6,15 +6,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Register.css";
 import Spinner from "../Components/Spinner";
-// import axios from "axios";
+import axios from "axios";
 
 const Register = () => {
-  const url = "https://dental-service.onrender.com/register";
+  const url = "http://127.0.0.1:8000/api/auth/register";
 
   const navigate = useNavigate();
   const [loader, setLoader] = useState("none");
   const [user, setUser] = useState({
-    name: "",
+    fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -39,14 +39,14 @@ const Register = () => {
   };
 
   const handleValidation = () => {
-    const { password, confirmPassword, name, email } = user;
+    const { password, confirmPassword, fullName, email } = user;
     if (password !== confirmPassword) {
       toast.error(
         "password and confirm password should be same.",
         toastOptions
       );
       return false;
-    } else if (name.length <= 2) {
+    } else if (fullName.length <= 2) {
       toast.error("Enter your full name", toastOptions);
       return false;
     } else if (password.length < 6) {
@@ -61,18 +61,18 @@ const Register = () => {
 
   const PostData = async (e) => {
     e.preventDefault();
-    const { name, email, password, confirmPassword } = user;
+    const { fullName, email, password, } = user;
     const requestOptions = {
       // if key and values are same then dont write it again eg -> name: name
-      name,
+      fullName,
       email,
       password,
-      confirmPassword,
     };
     console.log(requestOptions);
 
     if (handleValidation()) {
       setLoader("flex");
+      // const res = await axios.post(url, JSON.stringify(requestOptions));
       const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -82,6 +82,31 @@ const Register = () => {
       });
 
       const data = await res.json();
+
+      if (!res.ok) {
+        if (res.status === 422) {
+          // Validation errors
+          const errors = data.errors;
+          Object.keys(errors).forEach((key) => {
+            errors[key].forEach((error) => {
+              toast.error(error, {
+                position: toast.POSITION.TOP_RIGHT,
+              });
+            });
+          });
+        } else {
+          // Other errors
+          toast.error('An error occurred', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+      } else {
+        // Post was successful
+        toast.success(data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+      
       if (data) {
         setLoader("none");
       }
@@ -114,8 +139,8 @@ const Register = () => {
             <input
               type="text"
               placeholder="Enter Your Name"
-              name="name"
-              value={user.name}
+              name="fullName"
+              value={user.fullName}
               onChange={handleInputs}
               autoComplete="off"
             />
