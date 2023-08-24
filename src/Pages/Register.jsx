@@ -68,7 +68,6 @@ const Register = () => {
       email,
       password,
     };
-    console.log(requestOptions);
 
     if (handleValidation()) {
       setLoader("flex");
@@ -110,11 +109,10 @@ const Register = () => {
       if (data) {
         setLoader("none");
       }
-      console.log(data);
       toast.error(data.error, toastOptions);
       toast.error(data.message, toastOptions);
 
-      if (data.message === "user registered successfully") {
+      if (data.message === "User registered successfully") {
         toast.success(data.message, toastOptions);
         localStorage.setItem("chat-app-user", user);
         navigate("/login_user");

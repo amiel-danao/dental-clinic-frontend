@@ -7,8 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 import Spinner from '../Components/Spinner';
 const Login = () => {
-  // const url = "http://localhost:5000/login_user";
-  const url = 'https://dental-service.onrender.com/login_user';
+  const url = 'http://127.0.0.1:8000/api/auth/login';
   const navigate = useNavigate();
 
   const [loader, setLoader] = useState('none');
@@ -35,7 +34,7 @@ const Login = () => {
       toast.error('Password is required', toastOptions);
       return false;
     } else if (email === '') {
-      toast.error('email and Password is required', toastOptions);
+      toast.error('Email and Password is required', toastOptions);
       return false;
     }
     return true;
@@ -60,15 +59,33 @@ const Login = () => {
 
       const data = await res.json();
 
+      if (!res.ok) {
+        if (res.status === 422) {
+          const errors = data.errors;
+          Object.keys(errors).forEach((key) => {
+            errors[key].forEach((error) => {
+              toast.error(error, toastOptions);
+            });
+          });
+        }else{
+          toast.error(data.message, toastOptions);
+        }
+      }else{
+        toast.success(data.message, toastOptions);   
+         
+        setTimeout(() => {
+          navigate('/#home');
+        }, 1500);
+      }
       if (data) {
         setLoader('none');
       }
-      console.log(data);
 
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
       }
       if (data.message === 'Login Successfully') {
+        toast.success(data.message, toastOptions);
         localStorage.setItem('chat-app-user', data);
         navigate('/dental-clinic/user/chat_section');
       }
